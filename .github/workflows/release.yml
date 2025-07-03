@@ -1,0 +1,33 @@
+name: Zip WordPress Plugin for Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  zip-and-upload:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get plugin slug from repo name
+        id: vars
+        run: echo "slug=${GITHUB_REPOSITORY##*/}" >> $GITHUB_OUTPUT
+
+      - name: Create ZIP archive
+        run: |
+          mkdir plugin
+          shopt -s extglob
+          cp -r !(plugin|.git|.github|release.zip) plugin/
+          cd plugin
+          zip -r "../${{ steps.vars.outputs.slug }}.zip" .
+        shell: bash
+
+      - name: Upload ZIP to GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.vars.outputs.slug }}.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
