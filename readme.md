@@ -1,4 +1,5 @@
-=== Alt Text Generator ===
+# Alt Text Generator
+
 Contributors: tommusrhodus, automattic
 Donate link: https://specialprojects.automattic.com/
 Tags: accessibility, images, alt text, openai, seo
@@ -24,10 +25,10 @@ Alt Text Generator uses OpenAI to generate concise, accessible alt text for imag
 
 == Installation ==
 
-1. Upload `a8csp-alt-text-generator.php` folder to the `/wp-content/plugins/` directory
-2. Activate the plugin through the 'Plugins' menu in WordPress (for CLI use only)
-3. Set your OpenAI API key using the CLI command:
-   `wp a8csp alttext set-api-key <your-api-key>`
+1. Open your site via SSH so you have access to WP CLI.
+2. Run `wp plugin install https://github.com/a8cteam51/a8csp-alttext-generator/archive/trunk.zip --activate`
+3. Set your OpenAI API key using the CLI command: `wp a8csp alttext set-api-key <your-api-key>`
+4. You're now ready to run commands, see below for examples.
 
 == Usage ==
 
