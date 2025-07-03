@@ -5,7 +5,7 @@
  * Version: 1.0.0
  * Author: Automattic Special Projects
  * Author URI: https://specialprojects.automattic.com/
- * Text Domain: a8csp-alt-text-generator
+ * Text Domain: a8csp-alttext-generator
  * Domain Path: /languages
  * Contributors: tommusrhodus
  *
